@@ -16,6 +16,7 @@ class OrderSeeder extends Seeder
     {
         Order::create([
             'id' => 1,
+            'order_number' => 'Cybersecurity, Digital Forensics & Systems Security_001_2000',
             'section_id' => 1,
             'user_id' => 1,
             'date' => '2000-01-01',
@@ -25,6 +26,7 @@ class OrderSeeder extends Seeder
 
         Order::create([
             'id' => 2,
+            'order_number' => 'Petroleum Engineering_001_2020',
             'section_id' => 12,
             'user_id' => 2,
             'date' => '2020-07-13',
