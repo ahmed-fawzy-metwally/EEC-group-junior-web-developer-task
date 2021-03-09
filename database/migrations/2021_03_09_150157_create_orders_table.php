@@ -17,9 +17,6 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->date('date');
 
-            $table->bigInteger('department_id')->unsigned();
-            $table->foreign('department_id')->references('id')->on('departments');
-
             $table->bigInteger('section_id')->unsigned();
             $table->foreign('section_id')->references('id')->on('sections');
 

@@ -18,14 +18,6 @@ class Order extends Model
     }
 
     /**
-     * Get the department that have the order.
-     */
-    public function department()
-    {
-        return $this->belongsTo(Department::class);
-    }
-
-    /**
      * Get the section that have the order.
      */
     public function section()
