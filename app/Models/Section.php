@@ -10,18 +10,10 @@ class Section extends Model
     use HasFactory;
 
     /**
-     * Get the department that owns the section.
-     */
-    public function department()
-    {
-        return $this->belongsTo(Department::class);
-    }
-
-    /**
      * Get the orders for the section
      */
     public function orders()
     {
-        return $this->hasMany(orders::class);
+        return $this->hasMany(Order::class);
     }
 }

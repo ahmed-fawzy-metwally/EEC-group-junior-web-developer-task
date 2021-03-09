@@ -1,6 +1,6 @@
 # EEC-group-junior-web-developer-task
 
-## installation
+## Run the project
 1. Clone repository
 
     ```
@@ -24,14 +24,18 @@
         DB_PASSWORD=
         Put your database user after DB_USERNAME, and your user password after DB_PASSWORD
     ```
-    2.3 Migration
+    2.3 Migrate & seed
     ``` 
         php artisan migrate
-
-    ```
-    2.4 Seed data
-    ```
         php artisan db:seed
+        
+        or
+        
+        php artisan migrate --seed
+    ```
+    2.4 Run the project
+    ```
+        php artisan serve
     ```
 
 

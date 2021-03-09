@@ -24,10 +24,10 @@ class OrderSeeder extends Seeder
         ]);
 
         Order::create([
-            'id' => 1,
+            'id' => 2,
             'section_id' => 12,
-            'user_id' => 1,
-            'date' => '2000-01-01',
+            'user_id' => 2,
+            'date' => '2020-07-13',
             'created_at' => date("Y-m-d H:i:s"),
             'updated_at' => date("Y-m-d H:i:s"),
         ]);

@@ -17,7 +17,6 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
-
     /**
      * The orders that belong to the product.
      */

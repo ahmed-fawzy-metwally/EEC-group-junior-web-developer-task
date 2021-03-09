@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Department;
+use App\Models\Order;
 use App\Models\Section;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -38,6 +39,19 @@ class HomeController extends Controller
         // return Section ::find(3)->department;
         // return Product::find(6)->category;
         // return Category::find(1)->products;
+
+        // return Order::find(2)->user;
+        // return Order::find(2)->section;
+        // return Order::find(2)->products;
+
+        // return User::find(1)->orders;
+        // return Section::find(1)->orders;
+        return Product::find(1)->orders;
+
+
+
+
+
 
         return view('admin.index',compact('allRoles'));
     }
