@@ -20,7 +20,7 @@ class CreateOrderProductTable extends Migration
             $table->foreign('product_id')->references('id')->on('products');
 
             $table->bigInteger('order_id')->unsigned();
-            $table->foreign('order_id')->references('id')->on('orders');
+            $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
             
             $table->text('comment');
             $table->integer('quantity');

@@ -83,6 +83,9 @@ class OrderController extends Controller
      */
     public function destroy(Order $order)
     {
-        //
+        $orderNumber = $order->order_number;
+        $order->delete();
+
+        return redirect()->back()->with(session()->flash('success', $orderNumber . 'Order is Deleted successfully .'));
     }
 }
