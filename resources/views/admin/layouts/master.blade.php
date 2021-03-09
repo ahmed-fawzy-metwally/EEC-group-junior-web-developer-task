@@ -7,6 +7,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
+    
+    <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/fontaswesme-all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">   
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">   
@@ -25,6 +27,10 @@
         </div>
     </div>
     @include('admin.includes.footer')
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/jquery-3.5.1.min.js') }}" defer></script>
+    <script src="{{ asset('js/bootstrap.js') }}" defer></script>
     @yield('script')
 </body>
 

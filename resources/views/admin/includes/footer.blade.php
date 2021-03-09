@@ -1,3 +1,3 @@
-<footer class="bg-dark text-center">
-    Copyright &copy; 2020, Land a job All rights reserved
+<footer class="bg-dark text-center text-muted">
+     Copyright &copy; 2021 Invoice task Ahmed Fawzy
 </footer>

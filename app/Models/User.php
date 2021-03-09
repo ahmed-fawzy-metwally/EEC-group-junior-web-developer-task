@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -40,4 +41,25 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * The roles that belong to the user.
+     */
+    public function roles()
+    {
+        // return $this->belongsToMany(Role::class);
+        return $this->belongsToMany(Role::class)->withPivot('active','created_at');
+    }
+
+    static public function getRolesNumbers()
+    {
+        $allRoles = [];
+        if(!is_null(Auth::user())){
+            foreach (Auth::user()->roles as $role) {
+                if($role->pivot->active)
+                    array_push($allRoles,$role->pivot->role_id);
+            }
+        }
+        return $allRoles;
+    }
 }
