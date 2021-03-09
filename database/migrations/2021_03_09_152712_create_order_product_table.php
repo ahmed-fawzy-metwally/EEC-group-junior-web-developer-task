@@ -21,7 +21,8 @@ class CreateOrderProductTable extends Migration
 
             $table->bigInteger('order_id')->unsigned();
             $table->foreign('order_id')->references('id')->on('orders');
-
+            
+            $table->text('comment');
             $table->integer('quantity');
             $table->double('price');
 
