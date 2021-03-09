@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Department;
+use App\Models\Section;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -30,6 +32,10 @@ class HomeController extends Controller
         $allRoles = User::getRolesNumbers();
 
         // return Auth::user()->roles[0]->pivot;
+        // return Section::find(3)->department;
+
+
+        
         return view('admin.index',compact('allRoles'));
     }
 }

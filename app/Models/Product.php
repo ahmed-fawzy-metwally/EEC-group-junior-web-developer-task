@@ -5,15 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Section extends Model
+class Product extends Model
 {
     use HasFactory;
 
     /**
-     * Get the department that owns the section.
+     * Get the dategory that owns the product.
      */
-    public function department()
+    public function category()
     {
-        return $this->belongsTo(Department::class);
+        return $this->belongsTo(Category::class);
     }
 }
