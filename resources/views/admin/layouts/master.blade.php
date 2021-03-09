@@ -7,7 +7,6 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
-    
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/fontaswesme-all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">   
@@ -18,7 +17,7 @@
 <body>
     <div id="main-content">
         @include('admin.includes.header')
-        <div class="container-fluid content m-0 p-0">
+        <div class="container-fluid">
             <div class="row m-0 p-0">
                 <div class="col-12 mt-2 p-0">
                     @yield('content')

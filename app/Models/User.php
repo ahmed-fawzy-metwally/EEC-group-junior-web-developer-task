@@ -47,7 +47,7 @@ class User extends Authenticatable
      */
     public function roles()
     {
-        return $this->belongsToMany(Role::class)->withPivot('active','created_at');
+        return $this->belongsToMany(Role::class)->withPivot('active', 'created_at');
     }
 
     /**
@@ -59,13 +59,40 @@ class User extends Authenticatable
     }
 
 
-    static public function getRolesNumbers()
+    /**
+     * Return status if authenticated user have an admin role
+     *
+     * @return Boolean
+     */
+    static public function CheckAdminRole()
+    {
+        $allRoles = User::getAllRoles();
+        return in_array(1, $allRoles);
+    }
+
+    /**
+     * Return status if authenticated user have an admin role
+     *
+     * @return Boolean
+     */
+    static public function CheckUserRole()
+    {
+        $allRoles = User::getAllRoles();
+        return in_array(2, $allRoles);
+    }
+
+    /**
+     * Return array contain all authenticated user roles
+     *
+     * @return Array
+     */
+    static private function getAllRoles()
     {
         $allRoles = [];
-        if(!is_null(Auth::user())){
+        if (!is_null(Auth::user())) {
             foreach (Auth::user()->roles as $role) {
-                if($role->pivot->active)
-                    array_push($allRoles,$role->pivot->role_id);
+                if ($role->pivot->active)
+                    array_push($allRoles, $role->pivot->role_id);
             }
         }
         return $allRoles;

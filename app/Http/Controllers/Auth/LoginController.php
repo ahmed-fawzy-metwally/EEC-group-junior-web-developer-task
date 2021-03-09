@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -36,5 +37,21 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+
+     /**
+     * Where to redirect users after login.
+     *
+     * @return 
+     */
+    public function redirectPath()
+    {
+        if(User::CheckAdminRole())
+            return '/admin';
+        elseif(User::CheckUserRole())
+            return '/home';
+        else 
+            return '/';
     }
 }

@@ -43,7 +43,7 @@
                   </li>
 
                   {{-- Check account have admin role --}}
-                  @if (in_array(1, $allRoles))
+                  @admin
                       <li class="nav-item">
                           <a class="nav-link" href="#">Users</a>
                       </li>
@@ -65,7 +65,7 @@
                       <li class="nav-item">
                           <a class="nav-link" href="#">Orders</a>
                       </li>
-                  @endif
+                  @endadmin
 
               </ul>
 

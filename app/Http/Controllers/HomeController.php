@@ -22,7 +22,8 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
+        // $this->middleware('is.admin');
     }
 
     /**
@@ -32,8 +33,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $allRoles = User::getRolesNumbers();
-
         // return Auth::user()->roles[0]->pivot;
         // return Department::find(3)->sections;
         // return Section ::find(3)->department;
@@ -46,13 +45,7 @@ class HomeController extends Controller
 
         // return User::find(1)->orders;
         // return Section::find(1)->orders;
-        return Product::find(1)->orders;
-
-
-
-
-
-
-        return view('admin.index',compact('allRoles'));
+        // return Product::find(1)->orders;
+        return view('admin.index');
     }
 }
