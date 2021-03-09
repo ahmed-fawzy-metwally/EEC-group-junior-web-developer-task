@@ -17,11 +17,11 @@
     @if (count($orders))
         <div class="responsive-table">
             <div class="my-5">
-                <table id="table1" class="table table-bordered table-hover">
+                <table id="table1" class="table table-bordered table-striped">
                     <thead class="bg-secondary">
                         <tr>
-                            <th class="text-center text-white">Order Number</th>
-                            <th class="text-center text-white">Order Date</th>
+                            <th class="text-center text-white">Number</th>
+                            <th class="text-center text-white">Date</th>
                             <th class="text-center text-white">Department</th>
                             <th class="text-center text-white">Section</th>
                             <th class="text-center text-white">Items Category</th>
@@ -59,10 +59,9 @@
                                 </td>
 
                                 <td>
-                                    <a href="" class="d-inline-block btn btn-primary mx-1 mb-2">View</a>
-                                    <a href="" class="d-inline-block btn btn-warning mx-1 mb-2">Edit</a>
-                                    {{-- <form class="d-inline-block" action="{{ route('all-companies.destroy', $company->id) }}" method="POST"> --}}
-                                    <form class="d-inline-block">
+                                    <a href="{{route('order.show',$order->id)}}" class="d-inline-block btn btn-primary mx-1 mb-2">View</a>
+                                    <a href="{{route('order.edit',$order->id)}}" class="d-inline-block btn btn-warning mx-1 mb-2">Edit</a>
+                                    <form class="d-inline-block" action="{{ route('order.destroy', $order->id) }}" method="POST">
                                         @csrf
                                         @method('delete')
                                         <button class="d-inline-block btn btn-danger mx-1 mb-2">Delete</button>
