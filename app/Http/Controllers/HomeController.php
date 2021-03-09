@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Product;
 use App\Models\Department;
 use App\Models\Section;
 use App\Models\User;
@@ -32,10 +34,11 @@ class HomeController extends Controller
         $allRoles = User::getRolesNumbers();
 
         // return Auth::user()->roles[0]->pivot;
-        // return Section::find(3)->department;
+        // return Department::find(3)->sections;
+        // return Section ::find(3)->department;
+        // return Product::find(6)->category;
+        // return Category::find(1)->products;
 
-
-        
         return view('admin.index',compact('allRoles'));
     }
 }

@@ -16,4 +16,12 @@ class Department extends Model
     {
         return $this->hasMany(Section::class);
     }
+
+    /**
+     * Get the orders for the department
+     */
+    public function orders()
+    {
+        return $this->hasMany(orders::class);
+    }
 }

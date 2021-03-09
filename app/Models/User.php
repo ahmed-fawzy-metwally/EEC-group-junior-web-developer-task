@@ -47,9 +47,17 @@ class User extends Authenticatable
      */
     public function roles()
     {
-        // return $this->belongsToMany(Role::class);
         return $this->belongsToMany(Role::class)->withPivot('active','created_at');
     }
+
+    /**
+     * Get the orders for the user
+     */
+    public function orders()
+    {
+        return $this->hasMany(orders::class);
+    }
+
 
     static public function getRolesNumbers()
     {

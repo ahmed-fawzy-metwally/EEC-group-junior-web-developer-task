@@ -16,4 +16,12 @@ class Section extends Model
     {
         return $this->belongsTo(Department::class);
     }
+
+    /**
+     * Get the orders for the section
+     */
+    public function orders()
+    {
+        return $this->hasMany(orders::class);
+    }
 }
