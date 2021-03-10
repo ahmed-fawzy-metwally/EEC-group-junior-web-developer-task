@@ -27,9 +27,6 @@
                     <input type="date" name="date" value="{{ $order->date }}" id="date"
                         class="form-control @error('date') is-invalid @enderror" value="{{ old('date') }}">
                     <p class="validation-message text-danger" style="display: none">VALIDATION</p>
-                    {{-- @error('date')
-                        <p class="help text-danger">{{ $errors->first('date') }}</p>
-                    @enderror --}}
                 </div>
 
                 {{-- User select --}}
@@ -42,9 +39,6 @@
                         @endforeach
                     </select>
                     <p class="validation-message text-danger" style="display: none">VALIDATION</p>
-                    {{-- @error('user')
-                        <p class="help text-danger">{{ $errors->first('user') }}</p>
-                    @enderror --}}
                 </div>
 
                 {{-- Department select --}}
@@ -57,9 +51,6 @@
                         @endforeach
                     </select>
                     <p class="validation-message text-danger" style="display: none">VALIDATION</p>
-                    {{-- @error('department')
-                        <p class="help text-danger">{{ $errors->first('department') }}</p>
-                    @enderror --}}
                 </div>
 
                 {{-- Section select --}}
@@ -73,9 +64,6 @@
                         @endforeach
                     </select>
                     <p class="validation-message text-danger" style="display: none">VALIDATION</p>
-                    {{-- @error('section')
-                        <p class="help text-danger">{{ $errors->first('section') }}</p>
-                    @enderror --}}
                 </div>
 
 
@@ -97,9 +85,7 @@
                                     @endforeach
                                 </select>
                                 <p class="validation-message text-danger" style="display: none">VALIDATION</p>
-                                {{-- @error('category.0')
-                                <p class="help text-danger">{{ $errors->first('category.0') }}</p>
-                            @enderror --}}
+
                             </div>
 
                             {{-- Product select --}}
@@ -114,9 +100,6 @@
 
                                 </select>
                                 <p class="validation-message text-danger" style="display: none">VALIDATION</p>
-                                {{-- @error('product.0')
-                                <p class="help text-danger">{{ $errors->first('product.0') }}</p>
-                            @enderror --}}
                             </div>
 
                             {{-- Product Comment --}}
@@ -124,12 +107,8 @@
                                 <label>Product Comment</label>
                                 <textarea name="product-comment[]]" rows="1" placeholder="Comment"
                                     class="form-control @error('product-comment') is-invalid 
-                                    @enderror">{{ old('product-comment.0') }}{{ $products[$i]->pivot->comment }}</textarea>
-
+                                                    @enderror">{{ old('product-comment.0') }}{{ $products[$i]->pivot->comment }}</textarea>
                                 <p class="validation-message text-danger" style="display: none">VALIDATION</p>
-                                {{-- @error('product-comment.0')
-                                <p class="help text-danger">{{ $errors->first('product-comment.0') }}</p>
-                            @enderror --}}
                             </div>
 
                             {{-- Product quantity --}}
@@ -140,9 +119,6 @@
                                     placeholder="Product Quantity"
                                     value="{{ $products[$i]->pivot->quantity }}{{ old('product-quantity') }}">
                                 <p class="validation-message text-danger" style="display: none">VALIDATION</p>
-                                {{-- @error('product-quantity.0')
-                                <p class="help text-danger">{{ $errors->first('product-quantity.0') }}</p>
-                            @enderror --}}
                             </div>
 
 
@@ -153,9 +129,6 @@
                                     class="form-control products-price @error('product-price') is-invalid @enderror"
                                     value="{{ $products[$i]->pivot->price }}{{ old('product-price.0') }}">
                                 <p class="validation-message text-danger" style="display: none">VALIDATION</p>
-                                {{-- @error('product-price.0')
-                                <p class=" help text-danger">{{ $errors->first('product-price.0') }}</p>
-                            @enderror --}}
                             </div>
 
                             {{-- Total Product Quantity Price --}}
@@ -165,16 +138,14 @@
                                     class="form-control @error('product-total-quantity-price') is-invalid @enderror"
                                     value="{{ $products[$i]->pivot->price * $products[$i]->pivot->quantity }}{{ old('product-total-quantity-price.0') }}">
                                 <p class="validation-message text-danger" style="display: none">VALIDATION</p>
-                                {{-- @error('product-total-quantity-price.0')
-                                <p class=" help text-danger">{{ $errors->first('product-total-quantity-price.0') }}</p>
-                            @enderror --}}
                             </div>
                             @if (count($savedCategories) > 1)
-                            <a href="javascript:" class="delete-product btn btn-danger mb-3 col-12 col-md-6 col-lg-3 mt-3">Remove Delete product</a>
+                                <a href="javascript:"
+                                    class="delete-product btn btn-danger mb-3 col-12 col-md-6 col-lg-3 mt-3">Remove Delete
+                                    product</a>
                             @endif
                         </div>
                     @endfor
-
 
                 </div>
 

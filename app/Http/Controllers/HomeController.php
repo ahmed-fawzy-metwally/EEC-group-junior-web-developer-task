@@ -33,19 +33,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // return Auth::user()->roles[0]->pivot;
-        // return Department::find(3)->sections;
-        // return Section ::find(3)->department;
-        // return Product::find(6)->category;
-        // return Category::find(1)->products;
-
-        // return Order::find(2)->user;
-        // return Order::find(2)->section;
-        // return Order::find(2)->products;
-
-        // return User::find(1)->orders;
-        // return Section::find(1)->orders;
-        // return Product::find(1)->orders;
         return view('admin.index');
     }
 }

@@ -216,7 +216,6 @@ function validateProducts() {
     return $validated;
 }
 
-
 //Handle Submit Order
 $('#oredr-submit').on('click', function (event) {
 
@@ -234,9 +233,6 @@ $('#oredr-submit').on('click', function (event) {
     }
 
 });
-
-
-
 
 // This method for implementing ajax request
 function sendAjax(URL, method, data, dataType, headers, successFunction, that, selector, selectType) {

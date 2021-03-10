@@ -23,9 +23,6 @@
                     <input type="date" name="date" id="date" class="form-control @error('date') is-invalid @enderror"
                         value="{{ old('date') }}">
                     <p class="validation-message text-danger" style="display: none">VALIDATION</p>
-                    {{-- @error('date')
-                        <p class="help text-danger">{{ $errors->first('date') }}</p>
-                    @enderror --}}
                 </div>
 
                 {{-- User select --}}
@@ -38,9 +35,6 @@
                         @endforeach
                     </select>
                     <p class="validation-message text-danger" style="display: none">VALIDATION</p>
-                    {{-- @error('user')
-                        <p class="help text-danger">{{ $errors->first('user') }}</p>
-                    @enderror --}}
                 </div>
 
                 {{-- Department select --}}
@@ -53,9 +47,6 @@
                         @endforeach
                     </select>
                     <p class="validation-message text-danger" style="display: none">VALIDATION</p>
-                    {{-- @error('department')
-                        <p class="help text-danger">{{ $errors->first('department') }}</p>
-                    @enderror --}}
                 </div>
 
                 {{-- Section select --}}
@@ -65,9 +56,6 @@
                         <option value="null" disabled selected>Choose a Section</option>
                     </select>
                     <p class="validation-message text-danger" style="display: none">VALIDATION</p>
-                    {{-- @error('section')
-                        <p class="help text-danger">{{ $errors->first('section') }}</p>
-                    @enderror --}}
                 </div>
 
 
@@ -87,9 +75,6 @@
                                 @endforeach
                             </select>
                             <p class="validation-message text-danger" style="display: none">VALIDATION</p>
-                            {{-- @error('category.0')
-                                <p class="help text-danger">{{ $errors->first('category.0') }}</p>
-                            @enderror --}}
                         </div>
 
                         {{-- Product select --}}
@@ -99,9 +84,6 @@
                                 <option value="null" disabled selected>Choose a Product</option>
                             </select>
                             <p class="validation-message text-danger" style="display: none">VALIDATION</p>
-                            {{-- @error('product.0')
-                                <p class="help text-danger">{{ $errors->first('product.0') }}</p>
-                            @enderror --}}
                         </div>
 
                         {{-- Product Comment --}}
@@ -111,9 +93,6 @@
                                 class="form-control @error('product-comment') is-invalid @enderror">{{ old('product-comment.0') }}</textarea>
 
                             <p class="validation-message text-danger" style="display: none">VALIDATION</p>
-                            {{-- @error('product-comment.0')
-                                <p class="help text-danger">{{ $errors->first('product-comment.0') }}</p>
-                            @enderror --}}
                         </div>
 
                         {{-- Product quantity --}}
@@ -123,9 +102,6 @@
                                 class="form-control products-quantity @error('product-quantity') is-invalid @enderror"
                                 placeholder="Product Quantity" value="{{ old('product-quantity') }}">
                             <p class="validation-message text-danger" style="display: none">VALIDATION</p>
-                            {{-- @error('product-quantity.0')
-                                <p class="help text-danger">{{ $errors->first('product-quantity.0') }}</p>
-                            @enderror --}}
                         </div>
 
 
@@ -136,9 +112,6 @@
                                 class="form-control products-price @error('product-price') is-invalid @enderror"
                                 value="{{ old('product-price.0') }}">
                             <p class="validation-message text-danger" style="display: none">VALIDATION</p>
-                            {{-- @error('product-price.0')
-                                <p class=" help text-danger">{{ $errors->first('product-price.0') }}</p>
-                            @enderror --}}
                         </div>
 
                         {{-- Total Product Quantity Price --}}
@@ -148,9 +121,6 @@
                                 class="form-control @error('product-total-quantity-price') is-invalid @enderror"
                                 value="{{ old('product-total-quantity-price.0') }}">
                             <p class="validation-message text-danger" style="display: none">VALIDATION</p>
-                            {{-- @error('product-total-quantity-price.0')
-                                <p class=" help text-danger">{{ $errors->first('product-total-quantity-price.0') }}</p>
-                            @enderror --}}
                         </div>
 
                     </div>
