@@ -29,13 +29,13 @@ Route::get('/', function () {
 
 
 Route::group([
-    // 'middleware' => ['auth', 'isUser'],
+    'middleware' => ['auth', 'isUser'],
 ], function () {
     Route::get('/home', [AdminController::class, 'index'])->name('home');
 });
 
 Route::group([
-    // 'middleware' => ['auth', 'isAdmin'],
+    'middleware' => ['auth', 'isAdmin'],
     'prefix' => 'admin'
 ], function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard');

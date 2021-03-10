@@ -4,7 +4,7 @@
 1. Clone repository
 
     ```
-        1.1-git clone https://github.com/ahmed-fawzy-metwally/EEC-group-junior-web-developer-task
+        1.1- git clone https://github.com/ahmed-fawzy-metwally/EEC-group-junior-web-developer-task
         1.2- cd project-directory 
         1.3- composer install
         1.4- npm install
