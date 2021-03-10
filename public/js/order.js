@@ -1,4 +1,4 @@
-var errorsSet = new Set(['date', 'user', 'department', 'section']);
+var errorsSet = new Set();
 
 // Handle Add product event
 $('#add-product').on('click', function () {
@@ -35,7 +35,7 @@ $('#date').on('change', function dateValidation() {
     } else {
         if (errorsSet.has('date'))
             errorsSet.delete('date')
-            dateInput.next().css('display','none');
+        dateInput.next().css('display', 'none');
     }
 });
 
@@ -47,7 +47,7 @@ $('#user').on('change', function () {
         { user: $(this).val() },
         'JSON',
         { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-        function (userStatus,that) {
+        function (userStatus, that) {
             if (userStatus.status) {
                 if (errorsSet.has('user'))
                     errorsSet.delete('user')
@@ -219,19 +219,18 @@ function validateProducts() {
 
 //Handle Submit Order
 $('#oredr-submit').on('click', function (event) {
-    
 
     $('#date').trigger('change');
     $('#user').trigger('change');
     $('#department').trigger('change');
-    // $('#section').trigger('change');
+    $('#section').trigger('change');
 
     if (errorsSet.size != 0 || !validateProducts()) {
         event.preventDefault();
-        if(errorsSet.size != 0)
+        if (errorsSet.size != 0)
             $(this).next().css('display', 'block').text(`The is / are ${errorsSet.size} Error in your main order data`);
-        else 
-        $(this).next().css('display', 'none');
+        else
+            $(this).next().css('display', 'none');
     }
 
 });

@@ -12,10 +12,6 @@
         @endif
     </div>
 
-    @if ($errors->any())
-        {{ implode('', $errors->all('<div>:message</div>')) }}
-    @endif
-
     <h1 class="text-center text-secondary under mt-4 mb-2   ">New order</h1>
     <div class="row w-75 mx-auto mt-3">
         <div class="col-sm-12">
@@ -79,7 +75,6 @@
                 <h3 class="text-muted h1 mt-3 py-2 col-12">Products</h3>
                 <hr>
                 <div class="order-container">
-                    {{ 'Hello' }}
                     <div class="order-products-container row col-12 shadow mt-4 mx-0">
                         {{-- Category select --}}
                         <div class="form-group mb-3 col-12 col-md-6 col-lg-4 px-0">

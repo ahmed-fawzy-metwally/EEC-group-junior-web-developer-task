@@ -69,16 +69,16 @@ class OrderController extends Controller
             'product-price' => 'required|array',
             'product-price.*' => 'required',
         ]);
-        
+
         $order = Order::Create([
-            'order_number' => Section::find($request->section)->name.'-'.(Order::where('section_id', $request->section)->count()+1).'-'.date("Y"),
+            'order_number' => Section::find($request->section)->name . '-' . (Order::where('section_id', $request->section)->count() + 1) . '-' . date("Y"),
             'date' => $request->date,
             'section_id' => $request->section,
             'user_id' => $request->user,
         ]);
 
         $numOfProducts = count($request->category);
-        for ($i=0; $i < $numOfProducts ; $i++) { 
+        for ($i = 0; $i < $numOfProducts; $i++) {
             DB::table('order_product')->insert([
                 'product_id' => $request['product'][$i],
                 'order_id' => $order->id,
@@ -90,7 +90,7 @@ class OrderController extends Controller
             ]);
         }
 
-        return redirect()->back()->with(session()->flash('success', 'Order is Created successfully.'));
+        return redirect()->back()->with(session()->flash('success', 'Order is created successfully.'));
     }
 
     /**
@@ -112,7 +112,23 @@ class OrderController extends Controller
      */
     public function edit(Order $order)
     {
-        //
+        $users = User::pluck('name', 'id');
+        $departments = Department::pluck('name', 'id');
+        $categories = Category::pluck('name', 'id');
+        $department = Section::find($order->section_id)->department;
+        $sections = $department->sections;
+        $products = $order->products;
+        // dd($products[0]->pivot->comment);
+        $savedCategories = [];
+        foreach ($products as $key => $product) {
+            array_push($savedCategories, $product->category);
+        }
+        // dd($savedCategories);
+        // dd(count($savedCategories));
+
+
+
+        return view('admin.orders.edit', compact('order', 'users', 'department', 'departments', 'sections', 'categories', 'savedCategories', 'products'));
     }
 
     /**
@@ -124,7 +140,28 @@ class OrderController extends Controller
      */
     public function update(Request $request, Order $order)
     {
-        //
+
+        $order->date = $request->date;
+        $order->section_id = $request->section;
+        $order->user_id = $request->user;
+        $order->save();
+
+        $oldData =  DB::table('order_product')->where('order_id', $order->id)->delete();
+        $numOfProducts = count($request->category);
+        for ($i = 0; $i < $numOfProducts; $i++) {
+            DB::table('order_product')->insert([
+                'product_id' => $request['product'][$i],
+                'order_id' => $order->id,
+                'quantity' => $request['product-quantity'][$i],
+                'price' => $request['product-price'][$i],
+                'comment' => $request['product-comment'][$i],
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s"),
+            ]);
+        }
+
+
+        return redirect()->back()->with(session()->flash('success', 'Order is updated successfully.'));
     }
 
     /**
@@ -138,7 +175,7 @@ class OrderController extends Controller
         $orderNumber = $order->order_number;
         $order->delete();
 
-        return redirect()->back()->with(session()->flash('success', $orderNumber . 'Order is Deleted successfully .'));
+        return redirect()->back()->with(session()->flash('success', $orderNumber . 'Order is deleted successfully .'));
     }
 
     public function rules($request)
