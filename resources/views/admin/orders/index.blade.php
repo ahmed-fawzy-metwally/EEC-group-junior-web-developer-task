@@ -76,6 +76,9 @@
     @else
         <div class="w-50 mx-auto alert alert-danger">There is no Orders</div>
     @endif
+    <div class="row justify-content-center">
+        <a href="{{route('order.create')}}" class="btn btn-primary col-6 col-md-3 col-lg-2 mb-3">New Order</a>
+    </div>
 @endsection
 
 @section('script')

@@ -28,8 +28,8 @@
     @include('admin.includes.footer')
 
     <!-- Scripts -->
-    <script src="{{ asset('js/jquery-3.5.1.min.js') }}" defer></script>
-    <script src="{{ asset('js/bootstrap.js') }}" defer></script>
+    <script src="{{ asset('js/bootstrap.js') }}"></script>
+    <script src="{{ asset('js/jquery-3.5.1.min.js') }}"></script>
     @yield('script')
 </body>
 

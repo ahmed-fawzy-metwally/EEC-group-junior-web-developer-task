@@ -1,5 +1,5 @@
 @extends("admin.layouts.master")
-@section('title', 'All orders')
+@section('title', $order->order_number . ' Order')
 @section('css')
 @endsection
 

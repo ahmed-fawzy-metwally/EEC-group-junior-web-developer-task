@@ -9,6 +9,9 @@ class Order extends Model
 {
     use HasFactory;
     
+
+    protected $guarded = [];
+
     /**
      * The products that belong to the ordedr.
      */

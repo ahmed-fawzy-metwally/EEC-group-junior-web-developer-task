@@ -4,6 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\DepartmentController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\SectionController;
+use App\Http\Controllers\Admin\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,15 +29,28 @@ Route::get('/', function () {
 
 
 Route::group([
-    'middleware' => ['auth', 'isUser'],
+    // 'middleware' => ['auth', 'isUser'],
 ], function () {
     Route::get('/home', [AdminController::class, 'index'])->name('home');
 });
 
 Route::group([
-    'middleware' => ['auth', 'isAdmin'],
+    // 'middleware' => ['auth', 'isAdmin'],
     'prefix' => 'admin'
 ], function () {
-    Route::get('/', [AdminController::class, 'index']);
+    Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard');
+
+    Route::post('/getProductsPerCategory',[CategoryController::class, 'getAllrelatedProducts']);
+    Route::post('/checkCategoryFounded',[CategoryController::class, 'checkCategoryFounded']);
+
+    Route::post('/checkProductFounded',[ProductController::class, 'checkProductFounded']);
+    
+    Route::post('/getSectionsPerDepartment',[DepartmentController::class, 'getAllrelatedSections']);
+    Route::post('/checkDepartmentFounded',[DepartmentController::class, 'checkDepartmentFounded']);
+    
+    Route::post('/checkSectionFounded',[SectionController::class, 'checkSectionFounded']);
+
+    Route::post('/checkUserFounded',[UserController::class, 'checkUserFounded']);
+
     Route::resource('order', OrderController::class);
 });
