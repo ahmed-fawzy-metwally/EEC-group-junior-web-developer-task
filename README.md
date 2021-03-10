@@ -12,19 +12,21 @@
         1.6- php artisan key:generate
     ```
 2. Database 
-    
-    2.1 Create database in DBMS via this query
+    2.1 Entity Relationship Diagram (ERD)
+    ![Figure 1-1](/ERD.png "Figure 1-1")
+
+    2.2 Create database in DBMS via this query
     ``` sql
         create database `eec-task`;
     ```
-    2.2 Database Configuration in .env file in application root
+    2.3 Database Configuration in .env file in application root
     ``` 
         DB_DATABASE=eec-task
         DB_USERNAME=
         DB_PASSWORD=
         Put your database user after DB_USERNAME, and your user password after DB_PASSWORD
     ```
-    2.3 Migrate & seed
+    2.4 Migrate & seed
     ``` 
         php artisan migrate
         php artisan db:seed
@@ -33,7 +35,7 @@
         
         php artisan migrate --seed
     ```
-    2.4 Run the project
+    2.5 Run the project
     ```
         php artisan serve
     ```
